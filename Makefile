@@ -9,10 +9,10 @@ STD=c++11
 all: exec clean
 
 exec: MosqMQTTWrapper.o main.o 
-	$(CC) main.o -o exec -lmosquitto -lmosquittopp
+	$(CC) MosqMQTTWrapper.o main.o -o exec -lmosquitto -lmosquittopp
 main.o: main.cpp
 	$(CC) -std=$(STD) -c main.cpp
 MosqMQTTWrapper.o: MosqMQTTWrapper.hpp
-	$(CC) -std=$(STD) -c MosqMQTTWrapper.cpp -o mosqmqttwrapper.o
+	$(CC) -std=$(STD) -c MosqMQTTWrapper.cpp
 clean:
 	rm -rf *.o
